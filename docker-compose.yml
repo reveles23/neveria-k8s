@@ -1,0 +1,16 @@
+version: '3'
+services:
+  app:
+    build: .
+    ports:
+      - "8081:8081"
+    container_name: neveria
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:latest
+    container_name: neveria-mongo
+    ports:
+      - "27017:27017"

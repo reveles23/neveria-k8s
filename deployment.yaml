@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neveria-api-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: neveria-api
+  template:
+    metadata:
+      labels:
+        app: neveria-api
+    spec:
+      containers:
+      - name: neveria-api
+        image: karlareveles316/api-neveria:neveria-app
+        ports:
+        - containerPort: 8081
